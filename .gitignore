@@ -1,3 +1,4 @@
 # Vendor directories
 vendor/*
 
+/nbproject
