@@ -2,6 +2,8 @@
 
 namespace GOF\Creationals\Maze;
 
+//use GOF\Creationals\Maze\NotFoundException;
+
 /**
  * Description of Door
  *
@@ -26,17 +28,18 @@ class Door implements MapSite
     /**
      *
      * @param \GOF\Creationals\Maze\Room $r
-     * @return mixed 
+     * @return \GOF\Creationals\Maze\Room
+     * 
      */
     public function getOtherSideFrom(Room $r)
     {
         $number = $r->getNumber();
         if ($number == $this->room1->getNumber()) {
-            return $this->room1;
-        } elseif ($number == $this->room2->getNumber()) {
             return $this->room2;
+        } elseif ($number == $this->room2->getNumber()) {
+            return $this->room1;
         } else {
-            return false;
+            throw new NotFoundException(sprintf('The room n°%d is not adjacent to this wall', $number), 404);
         }
     }
     
