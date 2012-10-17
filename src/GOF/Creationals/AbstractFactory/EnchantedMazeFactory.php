@@ -2,7 +2,7 @@
 
 namespace GOF\Creationals\AbstractFactory;
 
-use GOF\Creationals\Maze\EnchantedRoom;
+use GOF\Creationals\Maze\Room;
 
 /**
  * Description of EnchantedMazeFactory
