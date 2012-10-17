@@ -30,7 +30,7 @@ class Maze
      * @param int $number
      * @return \GOF\Creationals\Maze\Room 
      */
-    public function getRoomByNumber(int $number)
+    public function getRoomByNumber($number)
     {
         return $this->rooms[$number];
     }

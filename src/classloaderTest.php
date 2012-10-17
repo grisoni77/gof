@@ -10,3 +10,7 @@ $loader->registerNamespaces(array(
 $loader->register();
 
 $game = new GOF\Creationals\Maze\MazeGame();
+$maze = $game->createMaze();
+$room1 = $maze->getRoomByNumber(1);
+echo $room1->getNumber();
+print_r($room1);
