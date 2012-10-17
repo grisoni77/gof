@@ -21,7 +21,7 @@ class EnchantedMazeFactory extends MazeFactory
         return new \GOF\Creationals\Maze\EnchantedRoom($number);
     }
     
-    public function makeDoor(EnchantedRoom $r1, EnchantedRoom $r2)
+    public function makeDoor(Room $r1, Room $r2)
     {
         return new \GOF\Creationals\Maze\DoorNeedingSpell($r1, $r2);
     }
