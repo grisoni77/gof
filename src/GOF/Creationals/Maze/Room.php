@@ -7,7 +7,7 @@ namespace GOF\Creationals\Maze;
  *
  * @author cris
  */
-class Room implements MapSite
+class Room implements RoomInterface
 {
     const NORTH = 1;
     const EAST = 2;

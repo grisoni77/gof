@@ -9,17 +9,17 @@ namespace GOF\Creationals\Maze;
  *
  * @author cris
  */
-class Door implements MapSite
+class Door implements DoorInterface
 {
     protected $room1;
     protected $room2;
 
     /**
      *
-     * @param \GOF\Creationals\Maze\Room $r1
-     * @param \GOF\Creationals\Maze\Room $r2 
+     * @param \GOF\Creationals\Maze\RoomInterface $r1
+     * @param \GOF\Creationals\Maze\RoomInterface $r2 
      */
-    public function __construct(Room $r1, Room $r2) 
+    public function __construct(RoomInterface $r1, RoomInterface $r2) 
     {
         $this->room1 = $r1;
         $this->room2 = $r2;
@@ -27,11 +27,11 @@ class Door implements MapSite
     
     /**
      *
-     * @param \GOF\Creationals\Maze\Room $r
-     * @return \GOF\Creationals\Maze\Room
+     * @param \GOF\Creationals\Maze\RoomInterface $r
+     * @return \GOF\Creationals\Maze\RoomInterface
      * 
      */
-    public function getOtherSideFrom(Room $r)
+    public function getOtherSideFrom(RoomInterface $r)
     {
         $number = $r->getNumber();
         if ($number == $this->room1->getNumber()) {

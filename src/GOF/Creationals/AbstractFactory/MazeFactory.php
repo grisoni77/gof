@@ -3,13 +3,14 @@
 namespace GOF\Creationals\AbstractFactory;
 
 use GOF\Creationals\Maze\Room;
+use GOF\Creationals\Maze\RoomInterface;
 
 /**
  * Description of MazeFactory
  *
  * @author cris
  */
-class MazeFactory 
+class MazeFactory implements MazeFactoryInterface
 {
     /**
      *
@@ -43,9 +44,9 @@ class MazeFactory
      *
      * @param Room $r1
      * @param Room $r2
-     * @return \GOF\Creationals\Maze\Door 
+     * @return \GOF\Creationals\Maze\DoorInterface
      */
-    public function makeDoor(Room $r1, Room $r2)
+    public function makeDoor(RoomInterface $r1, RoomInterface $r2)
     {
         return new \GOF\Creationals\Maze\Door($r1, $r2);
     }

@@ -7,7 +7,7 @@ namespace GOF\Creationals\Maze;
  *
  * @author cris
  */
-class Wall implements MapSite
+class Wall implements WallInterface
 {
     //put your code here
     public function enter() {

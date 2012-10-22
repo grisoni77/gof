@@ -11,7 +11,7 @@ use GOF\Creationals\Maze\Room;
  */
 class MazeGame
 {
-    public function createMaze(\GOF\Creationals\AbstractFactory\MazeFactory $factory)
+    public function createMaze(\GOF\Creationals\AbstractFactory\MazeFactoryInterface $factory)
     {
         $maze = $factory->makeMaze();
         $r1 = $factory->makeRoom(1);
