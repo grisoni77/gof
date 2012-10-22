@@ -13,7 +13,12 @@ namespace GOF\Creationals\Maze;
  */
 interface RoomInterface extends MapSite
 {
-        /**
+    const NORTH = 1;
+    const EAST = 2;
+    const SOUTH = 3;
+    const WEST = 4;
+    
+    /**
      *
      * @return int
      */
@@ -32,6 +37,14 @@ interface RoomInterface extends MapSite
      * @return \GOF\Creationals\Maze\MapSite 
      */
     public function getSide($direction);
+    
+    /**
+     * Return adjacent direction to $direction
+     * 
+     * @param int $direction
+     * @return int oposite direction 
+     */
+    public function getAdjacentDirection($direction);
 }
 
 ?>

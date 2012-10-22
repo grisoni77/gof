@@ -9,11 +9,6 @@ namespace GOF\Creationals\Maze;
  */
 class Room implements RoomInterface
 {
-    const NORTH = 1;
-    const EAST = 2;
-    const SOUTH = 3;
-    const WEST = 4;
-    
     protected $number;
     protected $sides;
     
@@ -52,6 +47,34 @@ class Room implements RoomInterface
     public function getSide($direction)
     {
         return array_key_exists($direction, $this->sides) ? $this->sides[$direction] : false;
+    }
+
+    /**
+     * @inheritdoc
+     */
+    public function getAdjacentDirection($direction) 
+    {
+        switch ($direction)
+        {
+            case RoomInterface::NORTH:
+                return RoomInterface::SOUTH;
+                break;
+            
+            case RoomInterface::EAST:
+                return RoomInterface::WEST;
+                break;
+            
+            case RoomInterface::SOUTH:
+                return RoomInterface::NORTH;
+                break;
+            
+            case RoomInterface::WEST:
+                return RoomInterface::EAST;
+                break;
+            
+            default:
+                throw new NotFoundException('This direction code does not exist: '.$direction, 400);
+        }
     }
 }
 

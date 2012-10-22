@@ -28,11 +28,11 @@ class Maze
     /**
      *
      * @param int $number
-     * @return \GOF\Creationals\Maze\Room 
+     * @return mixed
      */
     public function getRoomByNumber($number)
     {
-        return $this->rooms[$number];
+        return array_key_exists($number, $this->rooms) ? $this->rooms[$number] : false;
     }
 }
 
