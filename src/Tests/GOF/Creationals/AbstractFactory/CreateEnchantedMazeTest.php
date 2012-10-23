@@ -92,7 +92,10 @@ class CreateEnchantedMazeTest extends \Tests\GOF\GOFTestCase
             $room3 = $door->getOtherSideFrom(new \GOF\Creationals\Maze\Room(3));
         } catch (\Exception $e) {
             $this->assertTrue($e instanceof \GOF\Creationals\Maze\NotFoundException, __LINE__);
+            return;
         }        
+        
+        $this->fail('Non existing room returned');
     }
     
 }
