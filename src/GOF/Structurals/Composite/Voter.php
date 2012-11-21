@@ -9,7 +9,16 @@ namespace GOF\Structurals\Composite;
  */
 abstract class Voter 
 {
-    abstract public function getId();
+    protected $name;
+    
+    public function __construct($name)
+    {
+        $this->name = $name;
+    }
+    
+    public function getId() {
+        return md5($this->name);
+    }
     
     // operations
     abstract public function getReport();

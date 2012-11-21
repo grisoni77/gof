@@ -9,30 +9,37 @@ namespace GOF\Structurals\Composite;
  */
 class State extends Composite
 {
-    private $name;
-    
-    public function __construct($name)
-    {
-        parent::__construct();
-        $this->name = $name;
-    }
-
-    public function getId() {
-        return md5($this->name);
-    }
-
     public function getReport() 
     {
         $votes = $this->getVotes();
         $func = function($k) use ($votes) {
             return sprintf("%s=%d", $k, $votes[$k]);
         };
-        return sprintf("State %s - M|F=%d|%d - %s",
+        return sprintf("State %11s - M|F=%d|%d - %s",
                 $this->name, $this->getMales(), $this->getFemales(),
                 implode('|', array_map($func, array_keys($votes)))
         );
     }
     
+    public function printFullReport() 
+    {
+        $line = "---------------------------------------\n";
+        echo "\n";
+        echo $this->getReport();
+        echo "\n";
+        echo $line;
+        echo "\n";
+        foreach ($this as $county) {
+            echo $county->getReport();
+            echo "\n";
+            echo $line;
+            foreach ($county as $elector) {
+                echo $elector->getReport();
+                echo "\n";
+            }
+            echo "\n";
+        }
+    }
 }
 
 ?>

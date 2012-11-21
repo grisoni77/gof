@@ -14,8 +14,9 @@ abstract class Composite extends Voter implements \IteratorAggregate
     private $females;
     private $votes;
     
-    public function __construct()
+    public function __construct($name)
     {
+        parent::__construct($name);
         $this->children = new \ArrayObject(array());
         $this->males    = null;
         $this->females  = null;

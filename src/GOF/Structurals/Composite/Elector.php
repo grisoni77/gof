@@ -9,21 +9,16 @@ namespace GOF\Structurals\Composite;
  */
 class Elector extends Voter
 {
-    private $name;
     private $gender;
     private $vote;
     
     public function __construct($name, $gender, $vote)
     {
-        $this->name     = $name;
+        parent::__construct($name);
         $this->gender   = $gender;
         $this->vote     = $vote;
     }
 
-    public function getId() {
-        return md5($this->name);
-    }
-    
     public function getFemales() 
     {
         return $this->gender == 'F' ? 1 : 0;
@@ -39,7 +34,7 @@ class Elector extends Voter
 
     public function getReport() 
     {
-        return sprintf('%s - %c - voted for %s', 
+        return sprintf('%-10s (%s) voted for %s', 
                 $this->name, $this->gender, $this->vote);
     }
 }

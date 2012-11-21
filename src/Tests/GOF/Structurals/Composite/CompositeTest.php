@@ -56,17 +56,11 @@ class CompositeTest extends \Tests\GOF\GOFTestCase
     
     public function testReports()
     {
-        $this->assertEquals('State Alabama - M|F=5|3 - R=5|D=3', $this->state->getReport());
+        $this->assertEquals('State     Alabama - M|F=5|3 - R=5|D=3', $this->state->getReport());
         $c1 = $this->state->getIterator()->offsetGet(md5('Jefferson'));
-        $this->assertEquals('County Jefferson - M|F=2|2 - R=3|D=1', $c1->getReport());
+        $this->assertEquals('County  Jefferson - M|F=2|2 - R=3|D=1', $c1->getReport());
         $c2 = $this->state->getIterator()->offsetGet(md5('Mobile'));
-        $this->assertEquals('County Mobile - M|F=3|1 - R=2|D=2', $c2->getReport());
-        /*
-        foreach ($this->state as $county) {
-            $this->assertEquals('County Alabama - M|F=5|3 - R=5|D=3', $this->state->getReport());
-            echo $county->getReport();
-        }
-        */
+        $this->assertEquals('County     Mobile - M|F=3|1 - R=2|D=2', $c2->getReport());
     }
 }
 
