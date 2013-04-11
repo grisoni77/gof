@@ -24,7 +24,7 @@ class VisitorTest extends \Tests\GOF\GOFTestCase
         $zoo->append(new Human());
         $zoo->append(new Spider());
         $zooIterator = $zoo->getIterator();
-        $visitor = new CountLegVisitor();
+        $visitor = new CountLegsVisitor();
         foreach ($zooIterator as $a) {
             $a->accept($visitor);
         }
