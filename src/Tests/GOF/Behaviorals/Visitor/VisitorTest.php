@@ -37,7 +37,7 @@ class VisitorTest extends \Tests\GOF\GOFTestCase
         $human->setSleepless();
         $visitor = new SleepVisitor();
         $human->accept($visitor);
-        $this->assert(SleepVisitor::AWAKE, $human->getState());
+        $this->assertEquals(SleepVisitor::AWAKE, $human->getState());
     }
 
     public function testSleepVisitorSaneHuman()
@@ -45,7 +45,7 @@ class VisitorTest extends \Tests\GOF\GOFTestCase
         $human = new Human();
         $visitor = new SleepVisitor();
         $human->accept($visitor);
-        $this->assert(SleepVisitor::ASLEEP, $human->getState());
+        $this->assertEquals(SleepVisitor::ASLEEP, $human->getState());
     }
 
     /**
@@ -57,7 +57,7 @@ class VisitorTest extends \Tests\GOF\GOFTestCase
         $visitor = new SleepVisitor();
         $human->accept($visitor);
         $human->accept($visitor);
-        $this->assert(SleepVisitor::ASLEEP, $human->getState());
+        $this->assertEquals(SleepVisitor::ASLEEP, $human->getState());
     }
     
     public function testSleepVisitorWatchDog()
@@ -66,7 +66,7 @@ class VisitorTest extends \Tests\GOF\GOFTestCase
         $dog->prepareToWatch();
         $visitor = new SleepVisitor();
         $dog->accept($visitor);
-        $this->assert(SleepVisitor::AWAKE, $dog->getState());
+        $this->assertEquals(SleepVisitor::AWAKE, $dog->getState());
     }
 
     public function testSleepVisitorDog()
@@ -74,7 +74,7 @@ class VisitorTest extends \Tests\GOF\GOFTestCase
         $dog = new Dog();
         $visitor = new SleepVisitor();
         $dog->accept($visitor);
-        $this->assert(SleepVisitor::ASLEEP, $dog->getState());
+        $this->assertEquals(SleepVisitor::ASLEEP, $dog->getState());
     }
 
     /**
@@ -86,7 +86,7 @@ class VisitorTest extends \Tests\GOF\GOFTestCase
         $visitor = new SleepVisitor();
         $dog->accept($visitor);
         $dog->accept($visitor);
-        $this->assert(SleepVisitor::ASLEEP, $dog->getState());
+        $this->assertEquals(SleepVisitor::ASLEEP, $dog->getState());
     }
     
     public function testSleepVisitorSpider()
