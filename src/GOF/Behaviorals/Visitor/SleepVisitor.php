@@ -18,7 +18,7 @@ class SleepVisitor implements Visitor
     {
         // watch dogs never sleep :)
         if (!$dog->isWatchDog()) {
-            $this->setState(self::ASLEEP);
+            $dog->setState(self::ASLEEP);
         }
     }
 
