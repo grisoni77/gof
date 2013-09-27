@@ -2,10 +2,15 @@
 	"name": "grisoni77/gof",
 	"require": {
 		"phpunit/phpunit": "3.7.7",
-                "symfony/finder": "2.1.*",
-                "symfony/class-loader": "2.1.x"
+                "symfony/finder": "~2.3",
+                "symfony/class-loader": "~2.3"
 	},
 	"autoload": {
-		"psr-0": {"GOF": "src/"}
+		"psr-0": {
+                    "GOF": "src/",
+                    "Tests": "./"
+                    }
 	}
 }
+
+
